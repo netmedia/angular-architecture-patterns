@@ -1,0 +1,30 @@
+@import "../../../styles/variables";
+
+.login-label {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.login-title {
+  margin-top: 0;
+  text-align: center;
+}
+
+.login-registerLink {
+  margin-top: 15px;
+  font-weight: bold;
+  text-align: center;
+  display: block;
+  font-size: 1.2em;
+  color: $color-theme-blue;
+
+  &:hover {
+    color: $color-grey;
+  }
+}
+
+.login-submitBtn {
+  width: 100%;
+  padding: 1em;
+}

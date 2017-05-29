@@ -1,0 +1,22 @@
+{
+	"ServerError401": "Pristup nije dozvoljen. Molimo prijavite se.",
+  "ServerError403": "Pristup nije dozvoljen. Molimo unesite ispravne podatke.",
+  "ServerError404": "Dogodila se greška. Molimo kontaktirajte svog administratora.",
+  "ServerError500": "Dogodila se greška. Molimo kontaktirajte svog administratora.",
+  "SuccessNotificationTitle": "Uspješno",
+  "ErrorNotificationTitle": "Greška",
+  "InfoNotificationTitle": "Info",
+  "WarningNotificationTitle": "Upozorenje",
+  "SaveBtn": "Spremi",
+  "EditBtn": "Uredi",
+  "CancelBtn": "Odustani",
+  "BackBtn": "Nazad",
+  "GridEmptyLabel": "Nema dostupnih rezultata",
+
+  "ConfirmDialog": {
+    "Title": "Molimo potvrdite",
+    "Content": "Da li želite zatvoriti formu bez spremanja promjena?",
+    "SubmitBtn": "Da",
+    "CancelBtn": "Ne"
+  }
+}

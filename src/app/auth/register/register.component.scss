@@ -1,0 +1,22 @@
+@import "../../../styles/variables";
+
+.register-title {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.register-backBtn {
+	font-weight: bold;
+  text-transform: uppercase;
+  font-size: .9em;
+  color: $color-theme-blue;
+
+  &:hover {
+    color: $color-grey;
+  }
+}
+
+.register-submitBtn {
+  width: 100%;
+  padding: 1em;
+}

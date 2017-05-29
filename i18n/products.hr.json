@@ -1,0 +1,15 @@
+{
+  "Products": {
+    "Title": "Proizvodi"
+  },
+  "ProductDetails": {
+    "Title": "Detalji proizvoda",
+    "Name": "Naziv",
+    "SerialNumber": "Serijski Broj",
+    "Category": "Kategorija",
+    "Description": "Opis",
+    "WarrantyExpiration": "Istek Garancije",
+    "Price": "Cijena",
+    "Currency": "Valuta"
+  }
+}

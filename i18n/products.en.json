@@ -1,0 +1,15 @@
+{
+  "Products": {
+    "Title": "Products"
+  },
+  "ProductDetails": {
+    "Title": "Product details",
+    "Name": "Name",
+    "SerialNumber": "Serial Number",
+    "Category": "Category",
+    "Description": "Description",
+    "WarrantyExpiration": "Warranty Expiration",
+    "Price": "Price",
+    "Currency": "Currency"
+  }
+}

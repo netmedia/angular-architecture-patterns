@@ -1,0 +1,22 @@
+{
+  "ServerError401": "Access not allowed. Please login.",
+  "ServerError403": "Access forbidden. Please provide correct credentials",
+  "ServerError404": "An error occurred. Please contact your administrator",
+  "ServerError500": "An error occurred. Please contact your administrator",
+  "SuccessNotificationTitle": "Success",
+  "ErrorNotificationTitle": "Error",
+  "InfoNotificationTitle": "Info",
+  "WarningNotificationTitle": "Warning",
+  "SaveBtn": "Save",
+  "EditBtn": "Edit",
+  "CancelBtn": "Cancel",
+  "BackBtn": "Back",
+  "GridEmptyLabel": "No available items",
+
+  "ConfirmDialog": {
+    "Title": "Please confirm",
+    "Content": "Do you want to leave without saving the changes?",
+    "SubmitBtn": "Yes",
+    "CancelBtn": "No"
+  }
+}

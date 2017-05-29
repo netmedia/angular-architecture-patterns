@@ -1,0 +1,25 @@
+{
+	"Auth": {
+    "Email": "Email",
+    "Password": "Lozinka",
+    "ConfirmPassword": "Potvrdi lozinku",
+    "EmailFormatError": "Email adresa nije u pravilnom formatu",
+    "EmailRequiredError": "Email adresa je obavezna",
+    "PasswordRequiredError": "Lozinka je obavezna",
+    "ConfirmPasswordError": "Lozinke se ne podudaraju",
+    "PasswordLengthError": "Lozinka mora sadržavati najmanje 6 znakova",
+
+    "Login": {
+      "Title": "Prijavi se",
+      "Submit": "Prijavi se",
+      "RegisterLink": "Napravi račun"
+    },
+
+    "Register": {
+      "Title": "Napravi račun",
+      "Submit": "Napravi račun",
+      "Back": "Natrag",
+      "SuccessMessage": "Vaš račun je uspješno kreiran"
+    }
+  }
+}

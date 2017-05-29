@@ -1,0 +1,127 @@
+.timeline-item {
+  background: #fff;
+  border-radius: 3px;
+  padding: 12px;
+  margin: 0 auto;
+  min-height: 200px;
+}
+
+@keyframes placeHolderShimmer{
+  0%{
+    background-position: -468px 0
+  }
+  100%{
+    background-position: 468px 0
+  }
+}
+
+.animated-background {
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeHolderShimmer;
+  animation-timing-function: linear;
+  background: #f6f7f8;
+  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  background-size: 800px 104px;
+  height: 180px;
+  position: relative;
+}
+
+.background-masker {
+  background: #fff;
+  position: absolute;
+}
+
+/* Every thing below this is just positioning */
+
+.background-masker.header-top,
+.background-masker.header-bottom,
+.background-masker.subheader-bottom {
+  top: 0;
+  left: 120px;
+  right: 0;
+  height: 10px;
+}
+
+.background-masker.header-left,
+.background-masker.subheader-left,
+.background-masker.header-right,
+.background-masker.subheader-right {
+  top: 10px;
+  left: 120px;
+  height: 12px;
+  width: 10px;
+}
+
+.background-masker.header-bottom {
+  top: 22px;
+  height: 12px;
+}
+
+.background-masker.subheader-left,
+.background-masker.subheader-right {
+  top: 34px;
+  height: 6px;
+}
+
+
+.background-masker.header-right,
+.background-masker.subheader-right {
+  width: auto;
+  left: 50%;
+  right: 0;
+}
+
+.background-masker.subheader-right {
+  left: 30%;
+}
+
+.background-masker.subheader-bottom {
+  top: 40px;
+  height: 60px;
+}
+
+.background-masker.content-top,
+.background-masker.content-second-line,
+.background-masker.content-third-line,
+.background-masker.content-second-end,
+.background-masker.content-third-end,
+.background-masker.content-first-end {
+  top: 100px;
+  left: 0;
+  right: 0;
+  height: 6px;
+}
+
+.background-masker.content-top {
+  height:34px;
+}
+
+.background-masker.content-first-end,
+.background-masker.content-second-end,
+.background-masker.content-third-end{
+  width: auto;
+  left: 70%;
+  right: 0;
+  top: 134px;
+  height: 12px;
+}
+
+.background-masker.content-second-line  {
+  top: 146px;
+}
+
+.background-masker.content-second-end {
+  left: 80%;
+  top: 152px;
+}
+
+.background-masker.content-third-line {
+  top: 162px;
+}
+
+.background-masker.content-third-end {
+  left: 60%;
+  top: 168px;
+}

@@ -1,0 +1,84 @@
+@import "../../../../styles/variables";
+
+.profileActionBar {
+  height: 100%;
+}
+
+.profileActionBar-anchor {
+  min-width: 200px;
+  padding: 10px;
+  height: 100%;
+
+  span,
+  i {
+    display: inline-block;
+    color: $color-grey;
+  }
+}
+
+.profileActionBar-logout {
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.profileActionBar-imgWrapper {
+  display: inline-block;
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border: 1px solid $color-grey-verylight;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 5px;
+  cursor: default;
+
+  img {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+
+.profileActionBar-menu {
+  background-color: $color-white;
+  width: 203px;
+  -webkit-box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.24);
+  -moz-box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.24);
+  box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.24);
+
+  .k-popup {
+    border: none;
+  }
+}
+
+.profileActionBar-menu {
+  border-radius: 0;
+  
+  * {
+    color: $color-grey;
+  }
+}
+
+.profileActionBar-list {
+  width: 100%;
+
+  &:hover {
+    background-color: $color-theme-lightBlue;
+  }
+}
+
+.profileActionBar-item {
+  padding: 10px 0px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.profileActionBar-link {
+  padding: 0 10px;
+
+  i {
+    margin-right: 10px;
+  }
+}

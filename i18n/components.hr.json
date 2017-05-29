@@ -1,0 +1,16 @@
+{
+  "Sidebar": {
+    "Menu": "Menu",
+    "ProductsItem": "Proizvodi"
+  },
+
+  "ProfileActionBar": {
+    "Logout": "Odjava"
+  },
+
+  "PageNotFound": {
+    "Title": "Ooops, Stranica Nije Pronađena",
+    "Subtitle": "Molimo, vratite se na prethodnu stranicu",
+    "Button": "Povratak"
+  }
+}

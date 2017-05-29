@@ -1,0 +1,52 @@
+@import "../../../../styles/variables";
+
+:host {
+  position: relative;
+  float: left;
+  width: 100%;
+}
+
+.dropdown-pane {
+  top: 35px;
+  border-radius: 5px;
+  visibility: visible;
+  width: 65px;
+  padding: 0;
+
+  span {
+    display: block;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: $color-grey;
+
+    &:first-child {
+      margin-bottom: 5px;
+    }
+
+    &:hover {
+      background-color: $color-theme-lightBlue;
+    }
+  }
+}
+
+.language-selector-anchor {
+  display: block;
+  background-color: $color-white;
+  border: 1px solid $color-grey-light;
+  border-radius: 5px;
+  color: $color-grey;
+  padding: 7px 20px;
+  outline: none;
+  width: 65px;
+  text-transform: uppercase;
+  font-size: 16px;
+
+  &:hover, 
+	&:active,
+	&:focus {
+	  text-decoration:none;
+	  background-color: $color-theme-lightBlue;
+	}
+}

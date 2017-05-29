@@ -1,0 +1,75 @@
+{
+	"ServerError401": "Pristup nije dozvoljen. Molimo prijavite se.",
+  "ServerError403": "Pristup nije dozvoljen. Molimo unesite ispravne podatke.",
+  "ServerError404": "Dogodila se greška. Molimo kontaktirajte svog administratora.",
+  "ServerError500": "Dogodila se greška. Molimo kontaktirajte svog administratora.",
+  "SuccessNotificationTitle": "Uspješno",
+  "ErrorNotificationTitle": "Greška",
+  "InfoNotificationTitle": "Info",
+  "WarningNotificationTitle": "Upozorenje",
+  "SaveBtn": "Spremi",
+  "EditBtn": "Uredi",
+  "CancelBtn": "Odustani",
+  "BackBtn": "Nazad",
+  "GridEmptyLabel": "Nema dostupnih rezultata",
+
+  "ConfirmDialog": {
+    "Title": "Molimo potvrdite",
+    "Content": "Da li želite zatvoriti formu bez spremanja promjena?",
+    "SubmitBtn": "Da",
+    "CancelBtn": "Ne"
+  }
+,
+	"Auth": {
+    "Email": "Email",
+    "Password": "Lozinka",
+    "ConfirmPassword": "Potvrdi lozinku",
+    "EmailFormatError": "Email adresa nije u pravilnom formatu",
+    "EmailRequiredError": "Email adresa je obavezna",
+    "PasswordRequiredError": "Lozinka je obavezna",
+    "ConfirmPasswordError": "Lozinke se ne podudaraju",
+    "PasswordLengthError": "Lozinka mora sadržavati najmanje 6 znakova",
+
+    "Login": {
+      "Title": "Prijavi se",
+      "Submit": "Prijavi se",
+      "RegisterLink": "Napravi račun"
+    },
+
+    "Register": {
+      "Title": "Napravi račun",
+      "Submit": "Napravi račun",
+      "Back": "Natrag",
+      "SuccessMessage": "Vaš račun je uspješno kreiran"
+    }
+  }
+,
+  "Products": {
+    "Title": "Proizvodi"
+  },
+  "ProductDetails": {
+    "Title": "Detalji proizvoda",
+    "Name": "Naziv",
+    "SerialNumber": "Serijski Broj",
+    "Category": "Kategorija",
+    "Description": "Opis",
+    "WarrantyExpiration": "Istek Garancije",
+    "Price": "Cijena",
+    "Currency": "Valuta"
+  }
+,
+  "Sidebar": {
+    "Menu": "Menu",
+    "ProductsItem": "Proizvodi"
+  },
+
+  "ProfileActionBar": {
+    "Logout": "Odjava"
+  },
+
+  "PageNotFound": {
+    "Title": "Ooops, Stranica Nije Pronađena",
+    "Subtitle": "Molimo, vratite se na prethodnu stranicu",
+    "Button": "Povratak"
+  }
+}

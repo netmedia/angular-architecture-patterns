@@ -1,0 +1,25 @@
+{
+	"Auth": {
+    "Email": "Email",
+    "Password": "Password",
+    "ConfirmPassword": "Confirm Password",
+    "EmailFormatError": "Email is not in valid format",
+    "EmailRequiredError": "Email is required",
+    "PasswordRequiredError": "Password is required",
+    "ConfirmPasswordError": "Passwords mismatch",
+    "PasswordLengthError": "Passwords must contain at least 6 characters",
+
+    "Login": {
+      "Title": "Login",
+      "Submit": "Login",
+      "RegisterLink": "Sign Up"
+    },
+
+    "Register": {
+      "Title": "Sign Up",
+      "Submit": "Create account",
+      "Back": "Go Back",
+      "SuccessMessage": "Your account has been successfully created"
+    }
+  }
+}

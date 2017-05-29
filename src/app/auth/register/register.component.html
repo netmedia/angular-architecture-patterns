@@ -1,0 +1,23 @@
+<div class="form-container">
+  <a routerLink="/login" class="register-backBtn">{{ 'Auth.Register.Back' | translate }}</a>
+
+  <h2 class="register-title">{{ 'Auth.Register.Title' | translate }}</h2>
+
+  <div class="error-wrapper">
+    <label *ngIf="submitted && email.hasError('required')" class="error-label">{{ 'Auth.EmailRequiredError' | translate }}</label>
+    <label *ngIf="submitted && !email.hasError('required') && email.hasError('validateEmail')" class="error-label">{{ 'Auth.EmailFormatError' | translate }}</label>
+    <label *ngIf="submitted && password.hasError('required')" class="error-label">{{ 'Auth.PasswordRequiredError' | translate }}</label>
+    <label *ngIf="submitted && registerForm.hasError('mismatch')" class="error-label">{{ 'Auth.ConfirmPasswordError' | translate }}</label>
+    <label *ngIf="submitted && password.hasError('minlength')" class="error-label">{{ 'Auth.PasswordLengthError' | translate }}</label>
+  </div>
+
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit($event, registerForm.value)">
+    <input type="text" [formControl]="email" placeholder="{{ 'Auth.Email' | translate }}" class="txt">
+    <input type="password" [formControl]="password" placeholder="{{ 'Auth.Password' | translate }}" class="txt" minLength="6">
+    <input type="password" [formControl]="confirmPassword" placeholder="{{ 'Auth.ConfirmPassword' | translate }}" class="txt">
+
+    <button type="submit" class="basic-btn register-submitBtn">{{ 'Auth.Register.Submit' | translate }}</button>
+
+    <spinner [isRunning]="authSandbox.loginLoading$ | async"></spinner>
+  </form>
+</div>

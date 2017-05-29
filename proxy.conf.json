@@ -1,0 +1,7 @@
+{
+  "/api": {
+    "target": "http://apa.netmedia.hr",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "Sidebar": {
+    "Menu": "Menu",
+    "ProductsItem": "Products"
+  },
+
+  "ProfileActionBar": {
+    "Logout": "Logout"
+  },
+
+  "PageNotFound": {
+    "Title": "Ooops, Page Not Found",
+    "Subtitle": "Please, return to the previous page",
+    "Button": "Go back"
+  }
+}
