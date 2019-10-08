@@ -1,6 +1,6 @@
 import { Injectable } 	    from '@angular/core';
 import { Store }            from '@ngrx/store';
-import { Observable }       from 'rxjs/Observable';
+import { Observable }       from 'rxjs';
 import * as store           from '../store';
 import * as authActions     from '../store/actions/auth.action';
 import { User }             from '../models';
@@ -24,7 +24,7 @@ export abstract class Sandbox {
 
   /**
    * Formats date string based on selected culture
-   * 
+   *
    * @param value
    */
   public formatDate(value: string) {

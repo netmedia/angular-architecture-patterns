@@ -5,7 +5,7 @@ import {
   Path,
   Adapter
 }                           from '../shared/asyncServices/http';
-import { Observable }       from 'rxjs/Observable';
+import { Observable }       from 'rxjs';
 import { ProductsService }  from './products.service';
 
 @Injectable()
@@ -20,7 +20,7 @@ export class ProductsApiClient extends HttpService {
 
   /**
    * Retrieves product details by a given id
-   * 
+   *
    * @param id
    */
   @GET("/product/{id}")

@@ -1,5 +1,5 @@
 import { Component }        from '@angular/core';
-import { Observable }       from 'rxjs/Observable';
+import { Observable }       from 'rxjs';
 import { Subscription }     from "rxjs";
 import { LayoutSandbox }    from './layout.sandbox';
 import { ConfigService }    from '../../../app-config.service';

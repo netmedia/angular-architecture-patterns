@@ -3,7 +3,7 @@ import { TranslateService }     from 'ng2-translate';
 import { NotificationsService } from 'angular2-notifications';
 import { ConfigService }        from '../../../app-config.service';
 import { Router }               from '@angular/router';
-import { Observable }           from 'rxjs/Observable';
+import { Observable }           from 'rxjs';
 
 @Injectable()
 export class HttpResponseHandler {

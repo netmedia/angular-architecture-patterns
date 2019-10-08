@@ -4,7 +4,7 @@ import 'rxjs/add/operator/switchMap';
 import { Injectable }       from '@angular/core';
 import { Effect, Actions }  from '@ngrx/effects';
 import { Action }           from '@ngrx/store';
-import { Observable }       from 'rxjs/Observable';
+import { Observable }       from 'rxjs';
 import { of }               from 'rxjs/observable/of';
 import { AuthApiClient }    from '../../../auth/authApiClient.service';
 import * as actions         from '../actions/auth.action';

@@ -1,5 +1,5 @@
 import { Injectable }   from '@angular/core';
-import { Observable }   from 'rxjs/Observable';
+import { Observable }   from 'rxjs';
 import {
   LoginForm,
   RegisterForm
@@ -22,7 +22,7 @@ export class AuthApiClient extends HttpService {
 
   /**
    * Submits login form to the server
-   * 
+   *
    * @param form
    */
   @POST("/account/login")
@@ -31,7 +31,7 @@ export class AuthApiClient extends HttpService {
 
   /**
    * Submits register form to the server
-   * 
+   *
    * @param form
    */
   @POST("/account/register")

@@ -1,6 +1,6 @@
 import '@ngrx/core/add/operator/select';
 import 'rxjs/add/operator/map';
-import { Observable }     from 'rxjs/Observable';
+import { Observable }     from 'rxjs';
 import * as settings      from '../actions/settings.action';
 
 export interface State {
