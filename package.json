@@ -29,6 +29,7 @@
     "@angular/platform-browser": "~8.2.5",
     "@angular/platform-browser-dynamic": "~8.2.5",
     "@angular/router": "~8.2.5",
+    "@babel/polyfill": "^7.6.0",
     "@ngrx/core": "^1.2.0",
     "@ngrx/effects": "^8.3.0",
     "@ngrx/store": "^8.3.0",

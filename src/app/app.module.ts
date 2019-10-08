@@ -95,7 +95,7 @@ export function configServiceFactory (config: ConfigService) {
      * meta-reducer. This returns all providers for an @ngrx/store
      * based application.
      */
-    StoreModule.provideStore(store),
+    StoreModule.forRoot(store),
 
     /**
      * Store devtools instrument the store retaining past versions of state
@@ -107,7 +107,8 @@ export function configServiceFactory (config: ConfigService) {
      *
      * See: https://github.com/zalmoxisus/redux-devtools-extension
      */
-    StoreDevtoolsModule.instrumentOnlyWithExtension(),
+    // StoreDevtoolsModule.instrumentOnlyWithExtension(),
+    StoreDevtoolsModule.instrument(),
 
     /**
      * EffectsModule.run() sets up the effects class to be initialized
