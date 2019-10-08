@@ -1,8 +1,8 @@
-import { AnimationEntryMetadata } from '@angular/core';
+import { AnimationTriggerMetadata } from '@angular/animations';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 
 // Component transition animations
-export const slideInRightAnimation: AnimationEntryMetadata =
+export const slideInRightAnimation: AnimationTriggerMetadata =
   trigger('slideInRightAnimation', [
     state('in', style({opacity: 1, transform: 'translateX(0)'})),
     transition('void => *', [

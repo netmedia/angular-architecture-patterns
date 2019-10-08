@@ -5,7 +5,7 @@ import {
   RequestMethod,
   Response
 }                               from "@angular/http";
-import { Observable }           from "rxjs/Observable";
+import { Observable }           from "rxjs";
 import { HttpResponseHandler }  from './httpResponseHandler.service';
 import { HttpAdapter }          from './http.adapter';
 import { ConfigService }        from '../../../app-config.service';
