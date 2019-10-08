@@ -67,8 +67,8 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
 /* ****************************************
  * Imports
  * ****************************************/
-@import '~@swimlane/ngx-datatable/release/index.css';
-@import '~@swimlane/ngx-datatable/release/themes/material.css';
+@import '~@swimlane/ngx-datatable/index.css';
+@import '~@swimlane/ngx-datatable/themes/material.css';
 
 
 /* ****************************************
@@ -78,12 +78,12 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
   width: 10px;
   height: 10px;
 }
- 
+
 *::-webkit-scrollbar-track {
   box-shadow: inset 0 0 3px rgba(0,0,0,0.1);
   -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.1);
 }
- 
+
 *::-webkit-scrollbar-thumb {
   background-color: $color-theme-darkviolet;
   outline: 1px solid $color-theme-darkviolet;
