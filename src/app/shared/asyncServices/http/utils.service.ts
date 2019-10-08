@@ -53,7 +53,7 @@ export function methodBuilder(method: number) {
 export function paramBuilder(paramName: string) {
   return function(key: string) {
     return function(target: HttpService, propertyKey: string | symbol, parameterIndex: number) {
-      var metadataKey = `${propertyKey}_${paramName}_parameters`;
+      var metadataKey = `${propertyKey.toString()}_${paramName}_parameters`;
       var paramObj: any = {
           key: key,
           parameterIndex: parameterIndex
@@ -114,7 +114,7 @@ function createHeaders(pHeader: any, descriptor: any, defaultHeaders: any, args:
       headers.append(k, descriptor.headers[k]);
     }
   }
-  
+
   // set parameter specific headers
   if (pHeader) {
     for (var k in pHeader) {
