@@ -1,16 +1,17 @@
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
-import { Injectable }       from '@angular/core';
-import { Effect, Actions }  from '@ngrx/effects';
-import { Action }           from '@ngrx/store';
-import { Observable }       from 'rxjs';
-import { of }               from 'rxjs/observable/of';
-import { AuthApiClient }    from '../../../auth/authApiClient.service';
-import * as actions         from '../actions/auth.action';
-import { Store }            from '@ngrx/store';
-import * as store           from '../index';
-import { User }             from '../../models';
+import { Injectable } from '@angular/core';
+import { Effect, Actions, ofType } from '@ngrx/effects';
+import { Action } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { of } from 'rxjs/observable/of';
+import { AuthApiClient } from '../../../auth/authApiClient.service';
+import * as actions from '../actions/auth.action';
+import { Store } from '@ngrx/store';
+import * as store from '../index';
+import { User } from '../../models';
+import { map, switchMap } from 'rxjs/operators';
 
 /**
  * Effects offer a way to isolate and easily test side-effects within your
@@ -32,44 +33,50 @@ export class AuthEffects {
   constructor(
     private actions$: Actions,
     private authApiClient: AuthApiClient,
-    private appState$: Store<store.State>) {}
+    private appState$: Store<store.State>) { }
 
   /**
    * Login effect
+   * Ref:- https://github.com/ngrx/platform/blob/master/docs/effects/README.md
    */
   @Effect()
-  doLogin$: Observable<Action> = this.actions$
-    .ofType(actions.ActionTypes.DO_LOGIN)
-    .map((action: actions.DoLoginAction) => action.payload)
-    .switchMap(state => {
+  doLogin$: Observable<Action> = this.actions$.pipe(
+    ofType(actions.ActionTypes.DO_LOGIN),
+    map((action: actions.DoLoginAction) => action.payload),
+    switchMap(state => {
       return this.authApiClient.login(state)
-        .map(user    => new actions.DoLoginSuccessAction(new User(user)))
+        .map(user => new actions.DoLoginSuccessAction(new User(user)))
         .catch(error => of(new actions.DoLoginFailAction()));
-    });
+    })
+  );
 
   /**
    * Registers effect
    */
   @Effect()
   doRegister$: Observable<Action> = this.actions$
-    .ofType(actions.ActionTypes.DO_REGISTER)
-    .map((action: actions.DoRegisterAction) => action.payload)
-    .switchMap(state => {
-      return this.authApiClient.register(state)
-        .map(user    => new actions.DoRegisterSuccessAction(new User(user)))
-        .catch(error => of(new actions.DoRegisterFailAction()));
-    });
+    .pipe(
+      ofType(actions.ActionTypes.DO_REGISTER),
+      map((action: actions.DoRegisterAction) => action.payload),
+      switchMap(state => {
+        return this.authApiClient.register(state)
+          .map(user => new actions.DoRegisterSuccessAction(new User(user)))
+          .catch(error => of(new actions.DoRegisterFailAction()));
+      })
+    );
 
   /**
    * Logout effect
    */
   @Effect()
   doLogout$: Observable<Action> = this.actions$
-    .ofType(actions.ActionTypes.DO_LOGOUT)
-    .map((action: actions.DoLogoutAction) => null)
-    .switchMap(state => {
-      return this.authApiClient.logout()
-        .map(()      => new actions.DoLogoutSuccessAction())
-        .catch(error => of(new actions.DoLogoutFailAction()));
-    });
+    .pipe(
+      ofType(actions.ActionTypes.DO_LOGOUT),
+      map((action: actions.DoLogoutAction) => null),
+      switchMap(state => {
+        return this.authApiClient.logout()
+          .map(() => new actions.DoLogoutSuccessAction())
+          .catch(error => of(new actions.DoLogoutFailAction()));
+      })
+    );
 }

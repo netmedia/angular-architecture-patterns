@@ -107,7 +107,6 @@ export function configServiceFactory (config: ConfigService) {
      *
      * See: https://github.com/zalmoxisus/redux-devtools-extension
      */
-    // StoreDevtoolsModule.instrumentOnlyWithExtension(),
     StoreDevtoolsModule.instrument(),
 
     /**

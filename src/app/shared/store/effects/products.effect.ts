@@ -1,17 +1,18 @@
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
-import { Injectable }             from '@angular/core';
-import { Effect, Actions }        from '@ngrx/effects';
-import { Action }                 from '@ngrx/store';
-import { Observable }             from 'rxjs';
-import { of }                     from 'rxjs/observable/of';
-import { ProductsApiClient }      from '../../../products/productsApiClient.service';
-import * as productsActions       from '../actions/products.action';
+import { Injectable } from '@angular/core';
+import { Effect, Actions, ofType } from '@ngrx/effects';
+import { Action } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { of } from 'rxjs/observable/of';
+import { ProductsApiClient } from '../../../products/productsApiClient.service';
+import * as productsActions from '../actions/products.action';
 import * as productDetailsActions from '../actions/product-details.action';
-import { Store }                  from '@ngrx/store';
-import * as store                 from '../index';
-import { Product }                from '../../models';
+import { Store } from '@ngrx/store';
+import * as store from '../index';
+import { Product } from '../../models';
+import { map, switchMap } from 'rxjs/operators';
 
 /**
  * Effects offer a way to isolate and easily test side-effects within your
@@ -33,31 +34,35 @@ export class ProductsEffects {
   constructor(
     private actions$: Actions,
     private productsApiClient: ProductsApiClient,
-    private appState$: Store<store.State>) {}
+    private appState$: Store<store.State>) { }
 
   /**
    * Product list
    */
   @Effect()
   getProducts$: Observable<Action> = this.actions$
-    .ofType(productsActions.ActionTypes.LOAD)
-    .map((action: productsActions.LoadAction) => action.payload)
-    .switchMap(state => {
-      return this.productsApiClient.getProducts()
-        .map(products => new productsActions.LoadSuccessAction(products))
-        .catch(error  => of(new productsActions.LoadFailAction()));
-    });
+    .pipe(
+      ofType(productsActions.ActionTypes.LOAD),
+      map((action: productsActions.LoadAction) => action.payload),
+      switchMap(state => {
+        return this.productsApiClient.getProducts()
+          .map(products => new productsActions.LoadSuccessAction(products))
+          .catch(error => of(new productsActions.LoadFailAction()));
+      })
+    );
 
   /**
    * Product details
    */
   @Effect()
   getProductDetails$: Observable<Action> = this.actions$
-    .ofType(productDetailsActions.ActionTypes.LOAD)
-    .map((action: productDetailsActions.LoadAction) => action.payload)
-    .switchMap(state => {
-      return this.productsApiClient.getProductDetails(state)
-        .map(products => new productDetailsActions.LoadSuccessAction(products))
-        .catch(error  => of(new productDetailsActions.LoadFailAction()));
-    });
+    .pipe(
+      ofType(productDetailsActions.ActionTypes.LOAD),
+      map((action: productDetailsActions.LoadAction) => action.payload),
+      switchMap(state => {
+        return this.productsApiClient.getProductDetails(state)
+          .map(products => new productDetailsActions.LoadSuccessAction(products))
+          .catch(error => of(new productDetailsActions.LoadFailAction()));
+      })
+    );
 }
