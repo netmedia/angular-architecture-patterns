@@ -2,21 +2,21 @@ import { Action } from '@ngrx/store';
 import {
   LoginForm,
   RegisterForm
-}                 from '../../models';
-import { type }   from '../../utility';
+} from '../../models';
+import { type } from '../../utility';
 
 export const ActionTypes = {
-  DO_LOGIN:                  type('[Auth] Do Login'),
-  DO_LOGIN_SUCCESS:          type('[Auth] Do Login Success'),
-  DO_LOGIN_FAIL:             type('[Auth] Do Login Fail'),
-  DO_REGISTER:               type('[Auth] Do Register'),
-  DO_REGISTER_SUCCESS:       type('[Auth] Do Register Success'),
-  DO_REGISTER_FAIL:          type('[Auth] Do Register Fail'),
-  DO_LOGOUT:                 type('[Auth] Do Logout'),
-  DO_LOGOUT_SUCCESS:         type('[Auth] Do Logout Success'),
-  DO_LOGOUT_FAIL:            type('[Auth] Do Logout Fail'),
-  ADD_USER:                  type('[Auth] Add user'),
-  REMOVE_USER:               type('[Auth] Remove user')
+  DO_LOGIN: type('[Auth] Do Login'),
+  DO_LOGIN_SUCCESS: type('[Auth] Do Login Success'),
+  DO_LOGIN_FAIL: type('[Auth] Do Login Fail'),
+  DO_REGISTER: type('[Auth] Do Register'),
+  DO_REGISTER_SUCCESS: type('[Auth] Do Register Success'),
+  DO_REGISTER_FAIL: type('[Auth] Do Register Fail'),
+  DO_LOGOUT: type('[Auth] Do Logout'),
+  DO_LOGOUT_SUCCESS: type('[Auth] Do Logout Success'),
+  DO_LOGOUT_FAIL: type('[Auth] Do Logout Fail'),
+  ADD_USER: type('[Auth] Add user'),
+  REMOVE_USER: type('[Auth] Remove user')
 };
 
 /**

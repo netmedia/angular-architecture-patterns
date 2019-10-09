@@ -24,8 +24,24 @@
             "tsConfig": "tsconfig.app.json",
             "aot": false,
             "assets": [
+              "src/assets",
               "src/favicon.ico",
-              "src/assets"
+              "src/service-worker.js",
+              {
+                "glob": "**/*",
+                "input": "config",
+                "output": "./config/"
+              },
+              {
+                "glob": "en.json",
+                "input": "i18n",
+                "output": "./i18n/"
+              },
+              {
+                "glob": "hr.json",
+                "input": "i18n",
+                "output": "./i18n/"
+              }
             ],
             "styles": [
               "src/styles.scss"
@@ -34,12 +50,10 @@
           },
           "configurations": {
             "production": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
+              "fileReplacements": [{
+                "replace": "src/environments/environment.ts",
+                "with": "src/environments/environment.prod.ts"
+              }],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -49,8 +63,7 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "budgets": [
-                {
+              "budgets": [{
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
@@ -124,6 +137,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "ng"
 }

@@ -61,8 +61,8 @@ import { NgxDatatableModule }  from '@swimlane/ngx-datatable';
  * and there is no way to import a lambda from a module, you can only import an exported symbol.
  */
 
-export function configServiceFactory (config: ConfigService) {
-  return () => config.load()
+export function configServiceFactory(config: ConfigService) {
+  return () => config.load();
 }
 
 @NgModule({
@@ -94,6 +94,7 @@ export function configServiceFactory (config: ConfigService) {
      * store, combineReducers will be run creating your application
      * meta-reducer. This returns all providers for an @ngrx/store
      * based application.
+     * https://ngrx.io/api/store-devtools/StoreDevtoolsModule
      */
     StoreModule.forRoot(store),
 
@@ -113,10 +114,9 @@ export function configServiceFactory (config: ConfigService) {
      * EffectsModule.run() sets up the effects class to be initialized
      * immediately when the application starts.
      *
-     * See: https://github.com/ngrx/effects/blob/master/docs/api.md#run
+     * See: https://ngrx.io/api/effects/EffectsModule
      */
-    EffectsModule.run(AuthEffects),
-    EffectsModule.run(ProductsEffects)
+    EffectsModule.forRoot([AuthEffects, ProductsEffects]),
   ],
   providers: [
     AuthGuard,

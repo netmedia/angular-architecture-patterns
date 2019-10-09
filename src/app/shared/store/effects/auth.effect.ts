@@ -11,7 +11,7 @@ import * as actions from '../actions/auth.action';
 import { Store } from '@ngrx/store';
 import * as store from '../index';
 import { User } from '../../models';
-import { map, switchMap } from 'rxjs/operators';
+import { map, switchMap, catchError } from 'rxjs/operators';
 
 /**
  * Effects offer a way to isolate and easily test side-effects within your
@@ -36,17 +36,19 @@ export class AuthEffects {
     private appState$: Store<store.State>) { }
 
   /**
-   * Login effect
-   * Ref:- https://github.com/ngrx/platform/blob/master/docs/effects/README.md
-   */
+    * Login effect
+    * Ref:- https://github.com/ngrx/platform/blob/master/docs/effects/README.md
+    */
   @Effect()
   doLogin$: Observable<Action> = this.actions$.pipe(
     ofType(actions.ActionTypes.DO_LOGIN),
     map((action: actions.DoLoginAction) => action.payload),
     switchMap(state => {
       return this.authApiClient.login(state)
-        .map(user => new actions.DoLoginSuccessAction(new User(user)))
-        .catch(error => of(new actions.DoLoginFailAction()));
+        .pipe(
+          map(user => new actions.DoLoginSuccessAction(new User(user))),
+          catchError(error => of(new actions.DoLoginFailAction()))
+        );
     })
   );
 
@@ -60,8 +62,9 @@ export class AuthEffects {
       map((action: actions.DoRegisterAction) => action.payload),
       switchMap(state => {
         return this.authApiClient.register(state)
-          .map(user => new actions.DoRegisterSuccessAction(new User(user)))
-          .catch(error => of(new actions.DoRegisterFailAction()));
+          .pipe(map(user => new actions.DoRegisterSuccessAction(new User(user))),
+            catchError(error => of(new actions.DoRegisterFailAction()))
+          );
       })
     );
 
@@ -75,8 +78,10 @@ export class AuthEffects {
       map((action: actions.DoLogoutAction) => null),
       switchMap(state => {
         return this.authApiClient.logout()
-          .map(() => new actions.DoLogoutSuccessAction())
-          .catch(error => of(new actions.DoLogoutFailAction()));
+          .pipe(
+            map(() => new actions.DoLogoutSuccessAction()),
+            catchError(error => of(new actions.DoLogoutFailAction()))
+          );
       })
     );
 }
