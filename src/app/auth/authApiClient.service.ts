@@ -25,7 +25,7 @@ export class AuthApiClient extends HttpService {
    *
    * @param form
    */
-  @POST("/account/login")
+  @POST("/auth/login")
   @Adapter(AuthSandbox.authAdapter)
   public login(@Body form: LoginForm): Observable<any> { return null; };
 
@@ -34,13 +34,13 @@ export class AuthApiClient extends HttpService {
    *
    * @param form
    */
-  @POST("/account/register")
+  @POST("/auth/register")
   @Adapter(AuthSandbox.authAdapter)
   public register(@Body form: RegisterForm): Observable<any> { return null; };
 
   /**
    * Logs out current user
    */
-  @POST("/account/logout")
+  @POST("/auth/logout")
   public logout(): Observable<any> { return null; };
 }

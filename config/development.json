@@ -1,6 +1,6 @@
 {
   "api": {
-    "baseUrl": "/api"
+    "baseUrl": "http://127.0.0.1:8000/api/v1"
   },
 
   "paths": {
@@ -27,6 +27,6 @@
     "unauthorizedEndpoints": ["api/products"],
     "notFoundEndpoints": ["api/products", "api/account/login", "api/account/register"]
   },
-  
+
   "debugging": true
 }

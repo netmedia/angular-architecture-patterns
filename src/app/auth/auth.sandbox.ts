@@ -1,7 +1,7 @@
 import { Injectable } 	 from '@angular/core';
 import { Router }        from '@angular/router';
 import { Store }      	 from '@ngrx/store';
-import { Subscription }  from "rxjs";
+import { Subscription }  from 'rxjs';
 import { Sandbox } 			 from '../shared/sandbox/base.sandbox';
 import * as store     	 from '../shared/store';
 import * as authActions  from '../shared/store/actions/auth.action';
@@ -18,12 +18,6 @@ import {
 @Injectable()
 export class AuthSandbox extends Sandbox {
 
-  public loginLoading$ = this.appState$.select(store.getAuthLoading);
-  public loginLoaded$  = this.appState$.select(store.getAuthLoaded);
-  public loggedUser$   = this.appState$.select(store.getLoggedUser);
-
-  private subscriptions: Array<Subscription> = [];
-
   constructor(
     private router: Router,
     protected appState$: Store<store.State>,
@@ -32,6 +26,25 @@ export class AuthSandbox extends Sandbox {
   ) {
     super(appState$);
     this.registerAuthEvents();
+  }
+
+  public loginLoading$ = this.appState$.select(store.getAuthLoading);
+  public loginLoaded$  = this.appState$.select(store.getAuthLoaded);
+  public loggedUser$   = this.appState$.select(store.getLoggedUser);
+
+  private subscriptions: Array<Subscription> = [];
+
+  /**
+   * Uncapitalize response keys
+   *
+   * @param user
+   */
+  static authAdapter(user: any): any {
+    localStorage.setItem('token',user.token);
+    return Object.assign({}, user, {
+      email: user.Email,
+      token: user.token
+    });
   }
 
   /**
@@ -73,14 +86,5 @@ export class AuthSandbox extends Sandbox {
       if (user.isLoggedIn) user.save();
       else                 user.remove();
     }));
-  }
-
-  /**
-   * Uncapitalize response keys
-   *
-   * @param user
-   */
-  static authAdapter(user: any): any {
-    return Object.assign({}, user, { email: user.Email});
   }
 }

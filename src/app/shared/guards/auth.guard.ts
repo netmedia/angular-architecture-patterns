@@ -15,7 +15,8 @@ export class AuthGuard implements CanActivate {
   }
 
   checkLogin(url: string): boolean {
-    var currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    // var currentUser = JSON.parse(localStorage.getItem('token'));
+    var currentUser = localStorage.getItem('token');
     if (currentUser) return true;
 
     // Navigate to the login page with extras
