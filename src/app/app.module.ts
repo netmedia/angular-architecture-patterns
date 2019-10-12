@@ -1,58 +1,36 @@
 // Angular core modules
-import { BrowserModule }       from '@angular/platform-browser';
-import {
-  NgModule,
-  APP_INITIALIZER
-}                              from '@angular/core';
-import { FormsModule }         from '@angular/forms';
-import {
-  HttpModule,
-  RequestOptions,
-  XHRBackend,
-  Http
-}                              from '@angular/http';
-import { Router }              from '@angular/router';
-
-// Routes
-import { AppRoutingModule }    from './app-routing.module';
-
-// Modules
-import { AppComponent }        from './app.component';
-import { AuthModule }          from './auth/auth.module';
-import { ProductsModule }      from './products/products.module';
-import { HttpServiceModule }   from './shared/asyncServices/http/http.module';
-import { UtilityModule}        from './shared/utility';
-
-// Store
-
-// Effects
-import { AuthEffects }         from './shared/store/effects/auth.effect';
-import { ProductsEffects }     from './shared/store/effects/products.effect';
-
-// Guards
-import { AuthGuard }           from './shared/guards/auth.guard';
-import { CanDeactivateGuard }  from './shared/guards/canDeactivate.guard';
-
-// Services
-import { ConfigService }       from './app-config.service';
-
+import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
+import { EffectsModule } from '@ngrx/effects';
 // Third party libraries
-import { StoreModule }         from '@ngrx/store';
-import { EffectsModule }       from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import {
-  TranslateModule,
-  TranslateLoader,
-  TranslateStaticLoader
-}                              from 'ng2-translate';
-import { TranslateService }    from 'ng2-translate';
-import {
-  SimpleNotificationsModule,
-  NotificationsService
-}                              from 'angular2-notifications';
-import { NgxDatatableModule }  from '@swimlane/ngx-datatable';
-import { reducerToken, reducerProvider } from './store/app.reducer';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { SimpleNotificationsModule } from 'angular2-notifications';
+import { TranslateModule } from 'ng2-translate';
+// Services
+import { ConfigService } from './app-config.service';
+// Routes
+import { AppRoutingModule } from './app-routing.module';
+// Modules
+import { AppComponent } from './app.component';
+import { AuthModule } from './auth/auth.module';
+import { ProductsModule } from './products/products.module';
+import { HttpServiceModule } from './shared/asyncServices/http/http.module';
+// Guards
+import { AuthGuard } from './shared/guards/auth.guard';
+import { CanDeactivateGuard } from './shared/guards/canDeactivate.guard';
+import { UtilityModule } from './shared/utility';
 import { effects } from './store/app.effect';
+import { reducerProvider, reducerToken } from './store/app.reducer';
+
+
+
+
+
+
 
 /**
  * Calling functions or calling new is not supported in metadata when using AoT.
@@ -74,7 +52,7 @@ export function configServiceFactory(config: ConfigService) {
     // Angular core dependencies
     BrowserModule,
     FormsModule,
-    HttpModule,
+    HttpClient,
 
     // Third party modules
     TranslateModule.forRoot(),
