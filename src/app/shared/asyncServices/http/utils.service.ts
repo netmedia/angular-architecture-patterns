@@ -2,15 +2,15 @@ import { Observable } from 'rxjs/Observable';
 import { HttpService } from './http.service';
 
 export function methodBuilder(method: number) {
-  return (url: string) => {
-    return (target: HttpService, propertyKey: string, descriptor: any) => {
+  return function (url: string) {
+    return function (target: HttpService, propertyKey: string, descriptor: any) {
 
       const pPath = target[`${propertyKey}_Path_parameters`];
       const pQuery = target[`${propertyKey}_Query_parameters`];
       const pBody = target[`${propertyKey}_Body_parameters`];
       const pHeader = target[`${propertyKey}_Header_parameters`];
 
-      descriptor.value = (...args: any[]) => {
+      descriptor.value = function (...args: any[]) {
         const body: string = createBody(pBody, descriptor, args);
         const resUrl: string = createPath(url, pPath, args);
         const search: URLSearchParams = createQuery(pQuery, args);
@@ -44,8 +44,8 @@ export function methodBuilder(method: number) {
 }
 
 export function paramBuilder(paramName: string) {
-  return  (key: string)  => {
-    return  (target: HttpService, propertyKey: string | symbol, parameterIndex: number)  => {
+  return function (key: string) {
+    return function (target: HttpService, propertyKey: string | symbol, parameterIndex: number) {
       const metadataKey = `${propertyKey.toString()}_${paramName}_parameters`;
       const paramObj: any = {
         key,

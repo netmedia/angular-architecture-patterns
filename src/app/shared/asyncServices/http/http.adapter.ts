@@ -1,4 +1,3 @@
-import { Response } from '@angular/http';
 
 export class HttpAdapter {
 

@@ -1,12 +1,5 @@
-import { RequestMethod } from "@angular/http";
-import {
-  HttpService,
-  MediaType
-}                        from './http.service';
-import {
-  methodBuilder,
-  paramBuilder
-}                        from './utils.service';
+import { HttpService, MediaType } from './http.service';
+import { methodBuilder, paramBuilder } from './utils.service';
 
 /* *********************************************
  * Class decorators
@@ -43,27 +36,27 @@ export function DefaultHeaders(headers: any) {
  * GET method
  * @param {string} url - resource url of the method
  */
-export var GET = methodBuilder(RequestMethod.Get);
+export let GET = methodBuilder('GET');
 /**
  * POST method
  * @param {string} url - resource url of the method
  */
-export var POST = methodBuilder(RequestMethod.Post);
+export let POST = methodBuilder('POST');
 /**
  * PUT method
  * @param {string} url - resource url of the method
  */
-export var PUT = methodBuilder(RequestMethod.Put);
+export let PUT = methodBuilder('PUT');
 /**
  * DELETE method
  * @param {string} url - resource url of the method
  */
-export var DELETE = methodBuilder(RequestMethod.Delete);
+export let DELETE = methodBuilder('DELETE');
 /**
  * HEAD method
  * @param {string} url - resource url of the method
  */
-export var HEAD = methodBuilder(RequestMethod.Head);
+export let HEAD = methodBuilder('HEAD');
 
 /**
  * Set custom headers for a REST method
@@ -82,7 +75,7 @@ export function Headers(headersDef: any) {
  */
 export function Produces(producesDef: MediaType) {
   return function(target: HttpService, propertyKey: string, descriptor: any) {
-    descriptor.isJSON     = producesDef === MediaType.JSON;
+    descriptor.isJSON = producesDef === MediaType.JSON;
     descriptor.isFormData = producesDef === MediaType.FORM_DATA;
     return descriptor;
   };
@@ -108,19 +101,19 @@ export function Adapter(adapterFn: Function) {
  * Path variable of a method's url, type: string
  * @param {string} key - path key to bind value
  */
-export var Path = paramBuilder("Path");
+export let Path = paramBuilder('Path');
 /**
  * Query value of a method's url, type: string
  * @param {string} key - query key to bind value
  */
-export var Query = paramBuilder("Query");
+export let Query = paramBuilder('Query');
 /**
  * Body of a REST method, type: key-value pair object
  * Only one body per method!
  */
-export var Body = paramBuilder("Body")("Body");
+export let Body = paramBuilder('Body')('Body');
 /**
  * Custom header of a REST method, type: string
  * @param {string} key - header key to bind value
  */
-export var Header = paramBuilder("Header");
+export let Header = paramBuilder('Header');
