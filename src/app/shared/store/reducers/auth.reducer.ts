@@ -14,12 +14,17 @@ const INITIAL_STATE: State = {
   failed: false,
   user: new User()
 };
-
+debugger
 export function reducer(
   state = INITIAL_STATE,
   action: actions.Actions
 ): State {
-  if (!action) { return state; }
+  if (!action) {
+    console.log("Action not found");
+
+    return state;
+   }
+console.log("Current action is",action.type);
 
   switch (action.type) {
     case actions.ActionTypes.DO_LOGIN:

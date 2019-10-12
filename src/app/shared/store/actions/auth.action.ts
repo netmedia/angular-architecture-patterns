@@ -25,19 +25,28 @@ export const ActionTypes = {
 export class DoLoginAction implements Action {
   type = ActionTypes.DO_LOGIN;
 
-  constructor(public payload: LoginForm) { }
+  constructor(public payload: LoginForm) {
+    console.log("payload",payload);
+
+  }
 }
 
 export class DoLoginSuccessAction implements Action {
   type = ActionTypes.DO_LOGIN_SUCCESS;
 
-  constructor(public payload: any) { }
+  constructor(public payload: any) {
+    console.log("payload",payload);
+
+  }
 }
 
 export class DoLoginFailAction implements Action {
   type = ActionTypes.DO_LOGIN_FAIL;
 
-  constructor(public payload: any = null) { }
+  constructor(public payload: any = null) {
+    console.log("payload",payload);
+
+  }
 }
 
 /**
@@ -46,19 +55,28 @@ export class DoLoginFailAction implements Action {
 export class DoRegisterAction implements Action {
   type = ActionTypes.DO_REGISTER;
 
-  constructor(public payload: RegisterForm) { }
+  constructor(public payload: RegisterForm) {
+    console.log("payload",payload);
+
+  }
 }
 
 export class DoRegisterSuccessAction implements Action {
   type = ActionTypes.DO_REGISTER_SUCCESS;
 
-  constructor(public payload: any) { }
+  constructor(public payload: any) {
+    console.log("payload",payload);
+
+  }
 }
 
 export class DoRegisterFailAction implements Action {
   type = ActionTypes.DO_REGISTER_FAIL;
 
-  constructor(public payload: any = null) { }
+  constructor(public payload: any = null) {
+    console.log("payload",payload);
+
+  }
 }
 
 
@@ -68,19 +86,28 @@ export class DoRegisterFailAction implements Action {
 export class DoLogoutAction implements Action {
   type = ActionTypes.DO_LOGOUT;
 
-  constructor(public payload: any = null) { }
+  constructor(public payload: any = null) {
+    console.log("payload",payload);
+
+  }
 }
 
 export class DoLogoutSuccessAction implements Action {
   type = ActionTypes.DO_LOGOUT_SUCCESS;
 
-  constructor(public payload: any = null) { }
+  constructor(public payload: any = null) {
+    console.log("payload",payload);
+
+  }
 }
 
 export class DoLogoutFailAction implements Action {
   type = ActionTypes.DO_LOGOUT_FAIL;
 
-  constructor(public payload: any = null) { }
+  constructor(public payload: any = null) {
+    console.log("payload",payload);
+
+  }
 }
 
 
@@ -90,13 +117,19 @@ export class DoLogoutFailAction implements Action {
 export class AddUserAction implements Action {
   type = ActionTypes.ADD_USER;
 
-  constructor(public payload: any) { }
+  constructor(public payload: any) {
+    console.log("payload",payload);
+
+  }
 }
 
 export class RemoveUserAction implements Action {
   type = ActionTypes.REMOVE_USER;
 
-  constructor(public payload: any) { }
+  constructor(public payload: any) {
+    console.log("payload",payload);
+
+  }
 }
 
 export type Actions
