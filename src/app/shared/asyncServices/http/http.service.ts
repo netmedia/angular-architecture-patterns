@@ -1,18 +1,9 @@
-import { Injectable }           from "@angular/core";
-import {
-  Http,
-  Request,
-  RequestMethod,
-  Response
-}                               from "@angular/http";
-import { Observable }           from "rxjs";
-import { HttpResponseHandler }  from './httpResponseHandler.service';
-import { HttpAdapter }          from './http.adapter';
-import { ConfigService }        from '../../../app-config.service';
-import {
-  methodBuilder,
-  paramBuilder
-}                               from './utils.service';
+import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+import { Observable } from 'rxjs';
+import { ConfigService } from '../../../app-config.service';
+import { HttpAdapter } from './http.adapter';
+import { HttpResponseHandler } from './httpResponseHandler.service';
 
 /**
  * Supported @Produces media types
@@ -45,7 +36,7 @@ export class HttpService {
   * @method requestInterceptor
   * @param {Request} req - request object
   */
-  protected requestInterceptor(req: Request) {}
+  protected requestInterceptor() { }
 
   /**
   * Response Interceptor
@@ -56,7 +47,7 @@ export class HttpService {
   */
   protected responseInterceptor(observableRes: Observable<any>, adapterFn?: Function): Observable<any> {
     return observableRes
-    .map(res => HttpAdapter.baseAdapter(res, adapterFn))
-    .catch((err, source) => this.responseHandler.onCatch(err, source));
+      .map(res => HttpAdapter.baseAdapter(res, adapterFn))
+      .catch((err, source) => this.responseHandler.onCatch(err, source));
   }
 }

@@ -1,18 +1,18 @@
-import { Injectable }           from '@angular/core';
-import { TranslateService }     from 'ng2-translate';
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { NotificationsService } from 'angular2-notifications';
-import { ConfigService }        from '../../../app-config.service';
-import { Router }               from '@angular/router';
-import { Observable }           from 'rxjs';
+import { TranslateService } from 'ng2-translate';
+import { Observable } from 'rxjs';
+import { ConfigService } from '../../../app-config.service';
 
 @Injectable()
 export class HttpResponseHandler {
-	constructor(
-		private router: Router,
+  constructor(
+    private router: Router,
     private translateService: TranslateService,
     private notificationsService: NotificationsService,
     private configService: ConfigService
-  ) {}
+  ) { }
 
   /**
    * Global http error handler.
@@ -104,7 +104,7 @@ export class HttpResponseHandler {
 
     if (notFoundEndpoints.length) {
       let message = this.translateService.instant('ServerError404'),
-          title   = this.translateService.instant('ErrorNotificationTitle');
+        title = this.translateService.instant('ErrorNotificationTitle');
 
       this.showNotificationError(title, message);
     }
@@ -115,7 +115,7 @@ export class HttpResponseHandler {
    */
   private handleServerError(): void {
     let message = this.translateService.instant('ServerError500'),
-        title   = this.translateService.instant('ErrorNotificationTitle');
+      title = this.translateService.instant('ErrorNotificationTitle');
 
     this.showNotificationError(title, message);
   }
@@ -144,7 +144,7 @@ export class HttpResponseHandler {
    */
   private getTranslatedValue(value: string): string {
     if (value.indexOf('[') > -1) {
-      let key = value.substring(value.lastIndexOf("[")+1,value.lastIndexOf("]"));
+      let key = value.substring(value.lastIndexOf("[") + 1, value.lastIndexOf("]"));
       value = this.translateService.instant(key);
     }
 
