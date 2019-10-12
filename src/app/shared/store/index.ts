@@ -45,12 +45,6 @@ export const reducers = {
 
 export const combinedReducers = combineReducers(reducers);
 
-// export function store(state: any, action: any) {
-//   const store: ActionReducer<AuthState> = compose(combineReducers)(reducers);
-//   return store(state, action);
-// }
-
-
 
 /**
  * Every reducer module exports selector functions, however child reducers
@@ -58,10 +52,13 @@ export const combinedReducers = combineReducers(reducers);
  * need to make new selectors that wrap them.
  */
 
+ // Main Auth State
+export const getAuthMainState = createFeatureSelector<AuthState>('auth');
+
 /**
  * Settings store functions
  */
-export const getSettingsState = (state: AuthState) => state.settings;
+export const getSettingsState = createSelector(getAuthMainState, (state: AuthState) => state.settings);
 export const getSelectedLanguage = createSelector(getSettingsState, fromSettings.getSelectedLanguage);
 export const getSelectedCulture = createSelector(getSettingsState, fromSettings.getSelectedCulture);
 export const getAvailableLanguages = createSelector(getSettingsState, fromSettings.getAvailableLanguages);
@@ -69,10 +66,6 @@ export const getAvailableLanguages = createSelector(getSettingsState, fromSettin
 /**
  * Auth store functions
  */
-
-// Main Auth State
-// export const getAuthState = (state: AuthState) => state.login;
-export const getAuthMainState = createFeatureSelector<AuthState>('auth');
 
 export const getAuthState = createSelector(getAuthMainState, (state: AuthState) => state.login);
 export const getAuthLoaded = createSelector(getAuthState, fromAuth.getLoaded);
@@ -84,7 +77,6 @@ export const getLoggedUser = createSelector(getAuthState, fromAuth.getLoggedUser
  * Products store functions
  */
 export const getProductsState = createSelector(getAuthMainState, (state: AuthState) => state.products);
-// export const getProductsState = (state: AuthState) => state.products;
 export const getProductsLoaded = createSelector(getProductsState, fromProducts.getLoaded);
 export const getProductsLoading = createSelector(getProductsState, fromProducts.getLoading);
 export const getProductsFailed = createSelector(getProductsState, fromProducts.getFailed);
@@ -93,9 +85,7 @@ export const getProductsData = createSelector(getProductsState, fromProducts.get
 /**
  * Product details store functions
  */
-// export const getProductDetailsState = (state: AuthState) => state.productDetails;
 export const getProductDetailsState = createSelector(getAuthMainState, (state: AuthState) => state.productDetails);
-
 export const getProductDetailsLoaded = createSelector(getProductDetailsState, fromProductDetails.getLoaded);
 export const getProductDetailsLoading = createSelector(getProductDetailsState, fromProductDetails.getLoading);
 export const getProductDetailsFailed = createSelector(getProductDetailsState, fromProductDetails.getFailed);
