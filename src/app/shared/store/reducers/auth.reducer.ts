@@ -14,7 +14,6 @@ const INITIAL_STATE: State = {
   failed: false,
   user: new User()
 };
-debugger
 export function reducer(
   state = INITIAL_STATE,
   action: actions.Actions

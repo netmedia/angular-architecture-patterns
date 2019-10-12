@@ -1,17 +1,15 @@
+import { Injectable } from '@angular/core';
+import { Actions, Effect, ofType } from '@ngrx/effects';
+import { Action } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
-import { Injectable } from '@angular/core';
-import { Effect, Actions, ofType } from '@ngrx/effects';
-import { Action } from '@ngrx/store';
-import { Observable } from 'rxjs';
 import { of } from 'rxjs/observable/of';
+import { catchError, map, switchMap } from 'rxjs/operators';
 import { AuthApiClient } from '../../../auth/authApiClient.service';
-import * as actions from '../actions/auth.action';
-import { Store } from '@ngrx/store';
-import * as store from '../index';
 import { User } from '../../models';
-import { map, switchMap, catchError } from 'rxjs/operators';
+import * as actions from '../actions/auth.action';
 
 /**
  * Effects offer a way to isolate and easily test side-effects within your
@@ -32,8 +30,7 @@ export class AuthEffects {
 
   constructor(
     private actions$: Actions,
-    private authApiClient: AuthApiClient,
-    private appState$: Store<store.State>) { }
+    private authApiClient: AuthApiClient) { }
 
   /**
     * Login effect

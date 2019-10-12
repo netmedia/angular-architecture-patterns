@@ -12,7 +12,7 @@ export abstract class Sandbox {
   public culture$:    Observable<any> = this.appState$.select(store.getSelectedCulture);
   public culture:     string;
 
-  constructor(protected appState$: Store<store.State>) {}
+  constructor(protected appState$: Store<store.AuthState>) {}
 
   /**
    * Pulls user from local storage and saves it to the store

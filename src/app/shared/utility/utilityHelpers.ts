@@ -1,6 +1,3 @@
-import { Observable } from 'rxjs/Rx';
-import { Store }      from '@ngrx/store';
-import { State }      from '../store';
 
 let typeCache: { [label: string]: boolean } = {};
 
@@ -10,7 +7,7 @@ type Predicate = (oldValues: Array<any>, newValues: Array<any>) => boolean;
  * This function coerces a string into a string literal type.
  * Using tagged union types in TypeScript 2.0, this enables
  * powerful typechecking of our reducers.
- * 
+ *
  * Since every action label passes through this function it
  * is a good place to ensure all of our action labels are unique.
  *
@@ -47,7 +44,7 @@ export function distinctChanges(oldValues: Array<any>, newValues: Array<any>, co
 export function isObject(val: any) {
   if (val === null) return false;
 
-  return ( (typeof val === 'function') || (typeof val === 'object') );
+  return ((typeof val === 'function') || (typeof val === 'object'));
 }
 
 /**

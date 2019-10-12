@@ -24,7 +24,6 @@ import { HttpServiceModule }   from './shared/asyncServices/http/http.module';
 import { UtilityModule}        from './shared/utility';
 
 // Store
-import { store }               from './shared/store';
 
 // Effects
 import { AuthEffects }         from './shared/store/effects/auth.effect';
@@ -52,6 +51,8 @@ import {
   NotificationsService
 }                              from 'angular2-notifications';
 import { NgxDatatableModule }  from '@swimlane/ngx-datatable';
+import { reducerToken, reducerProvider } from './store/app.reducer';
+import { effects } from './store/app.effect';
 
 /**
  * Calling functions or calling new is not supported in metadata when using AoT.
@@ -96,8 +97,8 @@ export function configServiceFactory(config: ConfigService) {
      * based application.
      * https://ngrx.io/api/store-devtools/StoreDevtoolsModule
      */
-    StoreModule.forRoot(store),
-
+    // StoreModule.forRoot(store),
+    StoreModule.forRoot(reducerToken),
     /**
      * Store devtools instrument the store retaining past versions of state
      * and recalculating new states. This enables powerful time-travel
@@ -116,7 +117,8 @@ export function configServiceFactory(config: ConfigService) {
      *
      * See: https://ngrx.io/api/effects/EffectsModule
      */
-    EffectsModule.forRoot([AuthEffects, ProductsEffects]),
+    // EffectsModule.forRoot([AuthEffects, ProductsEffects]),
+    EffectsModule.forRoot(effects),
   ],
   providers: [
     AuthGuard,
@@ -127,7 +129,8 @@ export function configServiceFactory(config: ConfigService) {
       useFactory: configServiceFactory,
       deps: [ConfigService],
       multi: true
-    }
+    },
+    reducerProvider
   ],
   bootstrap: [AppComponent]
 })

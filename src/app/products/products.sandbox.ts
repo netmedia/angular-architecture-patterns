@@ -1,29 +1,26 @@
-import { Injectable }             from "@angular/core";
-import { Store }      	          from '@ngrx/store';
-import { Subscription }           from "rxjs";
-import { Sandbox } 			          from '../shared/sandbox/base.sandbox';
-import { ProductsApiClient }      from './productsApiClient.service';
-import * as store     	          from '../shared/store';
-import * as productsActions       from '../shared/store/actions/products.action';
+import { Injectable } from "@angular/core";
+import { Store } from '@ngrx/store';
+import { Subscription } from "rxjs";
+import { Product, User } from '../shared/models';
+import { Sandbox } from '../shared/sandbox/base.sandbox';
+import * as store from '../shared/store';
 import * as productDetailsActions from '../shared/store/actions/product-details.action';
-import {
-  Product,
-  User
-}                                 from '../shared/models';
+import * as productsActions from '../shared/store/actions/products.action';
+import { ProductsApiClient } from './productsApiClient.service';
 
 @Injectable()
 export class ProductsSandbox extends Sandbox {
 
-  public products$              = this.appState$.select(store.getProductsData);
-  public productsLoading$       = this.appState$.select(store.getProductsLoading);
-  public productDetails$        = this.appState$.select(store.getProductDetailsData);
+  public products$ = this.appState$.select(store.getProductsData);
+  public productsLoading$ = this.appState$.select(store.getProductsLoading);
+  public productDetails$ = this.appState$.select(store.getProductDetailsData);
   public productDetailsLoading$ = this.appState$.select(store.getProductDetailsLoading);
-  public loggedUser$            = this.appState$.select(store.getLoggedUser);
+  public loggedUser$ = this.appState$.select(store.getLoggedUser);
 
   private subscriptions: Array<Subscription> = [];
 
   constructor(
-    protected appState$: Store<store.State>,
+    protected appState$: Store<store.AuthState>,
     private productsApiClient: ProductsApiClient
   ) {
     super(appState$);
