@@ -1,7 +1,8 @@
 // Angular core modules
+import { HttpClientModule } from '@angular/common/http';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { EffectsModule } from '@ngrx/effects';
 // Third party libraries
@@ -11,7 +12,7 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import { TranslateModule } from 'ng2-translate';
 // Services
-import { ConfigService } from './app-config.service';
+import { ConfigService } from './config/config.service';
 // Routes
 import { AppRoutingModule } from './app-routing.module';
 // Modules
@@ -22,15 +23,9 @@ import { HttpServiceModule } from './shared/asyncServices/http/http.module';
 // Guards
 import { AuthGuard } from './shared/guards/auth.guard';
 import { CanDeactivateGuard } from './shared/guards/canDeactivate.guard';
+import { effects } from './shared/store/effects';
 import { UtilityModule } from './shared/utility';
-import { effects } from './store/app.effect';
 import { reducerProvider, reducerToken } from './store/app.reducer';
-
-
-
-
-
-
 
 /**
  * Calling functions or calling new is not supported in metadata when using AoT.
@@ -52,8 +47,8 @@ export function configServiceFactory(config: ConfigService) {
     // Angular core dependencies
     BrowserModule,
     FormsModule,
-    HttpClient,
-
+    HttpModule,
+    HttpClientModule,
     // Third party modules
     TranslateModule.forRoot(),
     SimpleNotificationsModule.forRoot(),
@@ -73,10 +68,9 @@ export function configServiceFactory(config: ConfigService) {
      * store, combineReducers will be run creating your application
      * meta-reducer. This returns all providers for an @ngrx/store
      * based application.
-     * https://ngrx.io/api/store-devtools/StoreDevtoolsModule
      */
-    // StoreModule.forRoot(store),
     StoreModule.forRoot(reducerToken),
+
     /**
      * Store devtools instrument the store retaining past versions of state
      * and recalculating new states. This enables powerful time-travel
@@ -93,9 +87,8 @@ export function configServiceFactory(config: ConfigService) {
      * EffectsModule.run() sets up the effects class to be initialized
      * immediately when the application starts.
      *
-     * See: https://ngrx.io/api/effects/EffectsModule
+     * See: https://github.com/ngrx/effects/blob/master/docs/api.md#run
      */
-    // EffectsModule.forRoot([AuthEffects, ProductsEffects]),
     EffectsModule.forRoot(effects),
   ],
   providers: [
@@ -113,3 +106,9 @@ export function configServiceFactory(config: ConfigService) {
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+
+
+
+

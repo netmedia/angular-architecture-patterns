@@ -1,8 +1,7 @@
-import { Injectable }           from '@angular/core';
-import { TranslateService }     from 'ng2-translate';
+import { Injectable } from '@angular/core';
 import { NotificationsService } from 'angular2-notifications';
-import { ConfigService }        from '../../app-config.service';
-import { Observable }           from 'rxjs/Rx';
+import { TranslateService } from 'ng2-translate';
+import { ConfigService } from 'src/app/config/config.service';
 
 @Injectable()
 export class UtilService {
@@ -11,7 +10,7 @@ export class UtilService {
     private translateService: TranslateService,
     private notificationService: NotificationsService,
     private configService: ConfigService
-  ) {}
+  ) { }
 
   /**
    * Translates given message code and title code and displays corresponding notification
@@ -36,7 +35,7 @@ export class UtilService {
       case "alert":
         title = this.translateService.instant('WarningNotificationTitle');
         break;
-      
+
       default:
         title = this.translateService.instant('InfoNotificationTitle');
         break;

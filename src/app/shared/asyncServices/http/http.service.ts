@@ -1,9 +1,18 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { ConfigService } from '../../../app-config.service';
-import { HttpAdapter } from './http.adapter';
-import { HttpResponseHandler } from './httpResponseHandler.service';
+import { Injectable }           from "@angular/core";
+import {
+  Http,
+  Request,
+  RequestMethod,
+  Response
+}                               from "@angular/http";
+import { Observable }           from "rxjs/Observable";
+import { HttpResponseHandler }  from './httpResponseHandler.service';
+import { HttpAdapter }          from './http.adapter';
+import { ConfigService } from 'src/app/config/config.service';
+import {
+  methodBuilder,
+  paramBuilder
+}                               from './utils.service';
 
 /**
  * Supported @Produces media types
@@ -17,7 +26,7 @@ export enum MediaType {
 export class HttpService {
 
   public constructor(
-    protected http: HttpClient,
+    protected http: Http,
     protected configService: ConfigService,
     protected responseHandler: HttpResponseHandler) {
   }
@@ -36,7 +45,7 @@ export class HttpService {
   * @method requestInterceptor
   * @param {Request} req - request object
   */
-  protected requestInterceptor() { }
+  protected requestInterceptor(req: Request) {}
 
   /**
   * Response Interceptor
@@ -47,7 +56,7 @@ export class HttpService {
   */
   protected responseInterceptor(observableRes: Observable<any>, adapterFn?: Function): Observable<any> {
     return observableRes
-      .map(res => HttpAdapter.baseAdapter({ res, adapterFn }))
-      .catch((err, source) => this.responseHandler.onCatch(err, source));
+    .map(res => HttpAdapter.baseAdapter(res, adapterFn))
+    .catch((err, source) => this.responseHandler.onCatch(err, source));
   }
 }
