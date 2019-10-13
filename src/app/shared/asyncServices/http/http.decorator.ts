@@ -1,4 +1,5 @@
-import { methodBuilder, paramBuilder } from '../../services/utils.service';
+import { methodBuilder } from '../../services/utils.service';
+import { paramBuilder } from './paramBuilder';
 
 /* *********************************************
  * Method decorators

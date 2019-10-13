@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Adapter, Body, DefaultHeaders, HttpService, POST } from '../shared/asyncServices/http';
+import { Adapter, Body, DefaultHeaders, HttpService, POST, Header } from '../shared/asyncServices/http';
 import { LoginForm, RegisterForm } from '../shared/models';
 import { AuthSandbox } from './auth.sandbox';
 
