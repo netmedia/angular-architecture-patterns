@@ -3,8 +3,8 @@ import {
   NgModule,
   ModuleWithProviders
 }                              from "@angular/core";
-import { HttpService }         from './http.service';
-import { HttpResponseHandler } from './httpResponseHandler.service';
+import { HttpService }         from '../../services/http.service';
+import { HttpResponseHandler } from '../../services/httpResponseHandler.service';
 
 @NgModule({
   imports: [CommonModule]

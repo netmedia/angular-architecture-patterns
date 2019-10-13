@@ -1,6 +1,6 @@
 import { RequestMethod } from "@angular/http";
-import { HttpService, MediaType } from './http.service';
-import { methodBuilder, paramBuilder } from './utils.service';
+import { HttpService, MediaType } from '../../services/http.service';
+import { methodBuilder, paramBuilder } from '../../services/utils.service';
 
 /* *********************************************
  * Class decorators

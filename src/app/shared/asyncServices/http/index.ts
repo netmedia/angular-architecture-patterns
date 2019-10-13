@@ -1,4 +1,4 @@
-export * from './http.service';
+export * from '../../services/http.service';
 export * from './http.module';
 export * from './http.decorator';
-export * from './httpResponseHandler.service';
+export * from '../../services/httpResponseHandler.service';
