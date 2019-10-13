@@ -1,12 +1,11 @@
-import { Headers, Request, RequestOptions, Response, URLSearchParams } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
+import { HttpHeaders, HttpParams, HttpRequest } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { HttpService } from './http.service';
-import { HttpHeaders, HttpParams } from '@angular/common/http';
 
-export function methodBuilder(method: number) {
+export function methodBuilder(method) {
   return function (url: string) {
     return function (target: HttpService, propertyKey: string, descriptor: any) {
-      console.log('method '+method+' url ', url);
+      console.log('method ' + method + ' url ', url);
 
       const pPath = target[`${propertyKey}_Path_parameters`];
       const pQuery = target[`${propertyKey}_Query_parameters`];
@@ -20,7 +19,7 @@ export function methodBuilder(method: number) {
 
         const headers: Headers = createHeaders(pHeader, descriptor, this.getDefaultHeaders(), args);
 
-        const httpRequestOptions =  {
+        const httpRequestOptions = {
           observe: 'response',
           headers: new HttpHeaders({
             'Content-Type': 'application/json',
@@ -29,15 +28,19 @@ export function methodBuilder(method: number) {
           params: new HttpParams({ fromString: 'cache=false' }),
         };
         // Request options
-        const options = new RequestOptions({
-          method,
-          url: this.getBaseUrl() + resUrl,
-          headers,
-          body,
-          search
-        });
+        // const options = new RequestOptions({
+        //   method,
+        //   url: this.getBaseUrl() + resUrl,
+        //   headers,
+        //   body,
+        //   search
+        // });
 
-        const req = new Request(options);
+
+        const req = new HttpRequest(
+          method,
+          this.getBaseUrl() + resUrl
+        );
 
         // intercept the request
         this.requestInterceptor(req);

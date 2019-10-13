@@ -1,18 +1,17 @@
-import { Injectable } 	    from '@angular/core';
-import { Store }            from '@ngrx/store';
-import { Observable }       from 'rxjs';
-import * as store           from '../store';
-import * as authActions     from '../store/actions/auth.action';
-import { User }             from '../models';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { User } from '../models';
+import * as store from '../store';
+import * as authActions from '../store/actions/auth.action';
 import { localeDateString } from '../utility';
 
 export abstract class Sandbox {
 
   public loggedUser$: Observable<any> = this.appState$.select(store.getLoggedUser);
-  public culture$:    Observable<any> = this.appState$.select(store.getSelectedCulture);
-  public culture:     string;
+  public culture$: Observable<any> = this.appState$.select(store.getSelectedCulture);
+  public culture: string;
 
-  constructor(protected appState$: Store<store.AuthState>) {}
+  constructor(protected appState$: Store<store.AuthState>) { }
 
   /**
    * Pulls user from local storage and saves it to the store

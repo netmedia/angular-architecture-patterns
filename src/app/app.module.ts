@@ -2,7 +2,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { EffectsModule } from '@ngrx/effects';
 // Third party libraries
@@ -48,7 +47,6 @@ export function configServiceFactory(config: ConfigService) {
     // Angular core dependencies
     BrowserModule,
     FormsModule,
-    HttpModule,
     HttpClientModule,
     // Third party modules
     TranslateModule.forRoot(),

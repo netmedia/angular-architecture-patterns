@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Http, Request, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { ConfigService } from 'src/app/config/config.service';
 import { HttpAdapter } from '../asyncServices/http/http.adapter';
 import { HttpResponseHandler } from './httpResponseHandler.service';
+import { HttpClient } from '@angular/common/http';
 
 /**
  * Supported @Produces media types
@@ -17,7 +17,7 @@ export enum MediaType {
 export class HttpService {
 
   public constructor(
-    protected http: Http,
+    protected http: HttpClient,
     protected configService: ConfigService,
     protected responseHandler: HttpResponseHandler) {
   }
