@@ -11,18 +11,19 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import { TranslateModule } from 'ng2-translate';
-// Services
-import { ConfigService } from './config/config.service';
 // Routes
 import { AppRoutingModule } from './app-routing.module';
 // Modules
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
+// Services
+import { ConfigService } from './config/config.service';
 import { ProductsModule } from './products/products.module';
 import { HttpServiceModule } from './shared/asyncServices/http/http.module';
 // Guards
 import { AuthGuard } from './shared/guards/auth.guard';
 import { CanDeactivateGuard } from './shared/guards/canDeactivate.guard';
+import { httpInterceptorProviders } from './shared/interceptors/httpInterceptorProviders';
 import { effects } from './shared/store/effects';
 import { UtilityModule } from './shared/utility';
 import { reducerProvider, reducerToken } from './store/app.reducer';
@@ -92,6 +93,7 @@ export function configServiceFactory(config: ConfigService) {
     EffectsModule.forRoot(effects),
   ],
   providers: [
+    httpInterceptorProviders,
     AuthGuard,
     CanDeactivateGuard,
     ConfigService,

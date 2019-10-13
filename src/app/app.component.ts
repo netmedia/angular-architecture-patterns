@@ -1,6 +1,7 @@
-import { Component }  from '@angular/core';
-import { Router }     from '@angular/router';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AppSandbox } from './app.sandbox';
+import { log } from './shared/decorator/log.decorator';
 
 @Component({
   selector: 'body',
@@ -8,7 +9,7 @@ import { AppSandbox } from './app.sandbox';
     <router-outlet></router-outlet>
     <simple-notifications [options]="appSandbox.getNotificationOptions()"></simple-notifications>
   `,
-  host:     {'[class.body-loginPage]':'isLoginPage'},
+  host: { '[class.body-loginPage]': 'isLoginPage' },
   providers: [AppSandbox]
 })
 export class AppComponent {
@@ -18,7 +19,7 @@ export class AppComponent {
   constructor(
     private router: Router,
     public appSandbox: AppSandbox
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.appSandbox.setupLanguage();

@@ -1,12 +1,6 @@
 import { RequestMethod } from "@angular/http";
-import {
-  HttpService,
-  MediaType
-}                        from './http.service';
-import {
-  methodBuilder,
-  paramBuilder
-}                        from './utils.service';
+import { HttpService, MediaType } from './http.service';
+import { methodBuilder, paramBuilder } from './utils.service';
 
 /* *********************************************
  * Class decorators
@@ -70,7 +64,7 @@ export var HEAD = methodBuilder(RequestMethod.Head);
  * @param {Object} headersDef - custom headers in a key-value pair
  */
 export function Headers(headersDef: any) {
-  return function(target: HttpService, propertyKey: string, descriptor: any) {
+  return function (target: HttpService, propertyKey: string, descriptor: any) {
     descriptor.headers = headersDef;
     return descriptor;
   };
@@ -81,8 +75,8 @@ export function Headers(headersDef: any) {
  * @param MediaType producesDef - MediaType to be sent
  */
 export function Produces(producesDef: MediaType) {
-  return function(target: HttpService, propertyKey: string, descriptor: any) {
-    descriptor.isJSON     = producesDef === MediaType.JSON;
+  return function (target: HttpService, propertyKey: string, descriptor: any) {
+    descriptor.isJSON = producesDef === MediaType.JSON;
     descriptor.isFormData = producesDef === MediaType.FORM_DATA;
     return descriptor;
   };
@@ -93,7 +87,7 @@ export function Produces(producesDef: MediaType) {
  * @param TFunction adapterFn - function to be called
  */
 export function Adapter(adapterFn: Function) {
-  return function(target: HttpService, propertyKey: string, descriptor: any) {
+  return function (target: HttpService, propertyKey: string, descriptor: any) {
     descriptor.adapter = adapterFn || null;
     return descriptor;
   };
